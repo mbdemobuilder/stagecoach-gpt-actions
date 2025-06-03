@@ -1,0 +1,55 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Driving Directions to Wells Fargo",
+    "version": "1.0.0",
+    "description": "Provides driving directions from a user location to a Wells Fargo bank branch"
+  },
+  "servers": [
+    {
+      "url": "https://maps.googleapis.com"
+    }
+  ],
+  "paths": {
+    "/maps/api/directions/json": {
+      "get": {
+        "operationId": "getDrivingDirectionsToBranch",
+        "summary": "Get driving directions from a user location to a Wells Fargo branch",
+        "parameters": [
+          {
+            "name": "origin",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Starting address"
+          },
+          {
+            "name": "destination",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Destination address (Wells Fargo branch)"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Google Maps API key"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Driving directions returned from Google Maps"
+          }
+        }
+      }
+    }
+  }
+}
